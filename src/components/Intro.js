@@ -1,14 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 
-const Intro = () => {
+import IntroForm from './IntroForm'
+
+const Intro = ({ intro }) => {
+  const [editIntroMode, setEditIntroMode] = useState(true)
+  const { img, text } = intro
+
+  const introSect = () => {
+    if (editIntroMode) {
+      return (
+        <>
+          <button type="button" onClick={() => setEditIntroMode(false)}>Edit</button>
+          <div style={{ maxHeight: '200px', maxWidth: '200px' }}>
+            <img src={img} alt="intro pic" height="100%" width="100%" />
+          </div>
+          <p>{text}</p>
+        </>
+      )
+    }
+    return (
+      <IntroForm setEditIntroMode={setEditIntroMode} />
+    )
+  }
+
   return (
     <>
-      <h1>Hey y'all this is me</h1>
-      <button>Edit</button>
-      <img src="pic" alt="intro pic" width="500" height="500"></img>
-      <p>Some changeable text</p>
+      <h1>Hey y&apos;all this is me!</h1>
+      { introSect() }
     </>
   )
 }
 
-export default Intro
+const mapStateToProps = state => ({ intro: state.intro })
+
+export default connect(mapStateToProps)(Intro)
