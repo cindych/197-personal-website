@@ -1,4 +1,4 @@
-import { ADD_POST, EDIT_POST } from '../actions'
+import { ADD_POST, EDIT_POST, DELETE_POST } from '../actions'
 
 const default_state = []
 
@@ -21,6 +21,8 @@ const posts = (state = default_state, action) => {
         }
         return { ...post }
       })
+    case DELETE_POST:
+      return (state.filter(post => post.id !== id))
     default:
       return state
   }

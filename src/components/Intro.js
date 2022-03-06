@@ -26,7 +26,7 @@ const Intro = ({ intro }) => {
 
   return (
     <>
-      <h1>Hey y&apos;all this is me!</h1>
+      <h1>your own ~personal~ space ✨</h1>
       { introSect() }
     </>
   )

@@ -1,20 +1,41 @@
-// try to condense post form into this component?
-// not rilly sure yet tho
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 
-const PostForm = () => {
-  const [editPostMode, setEditPostMode] = useState(false)
-  const [title, setTitle] = useState('')
-  const [img, setImg] = useState('')
-  const [text, setText] = useState('')
+import { addPost, editPost, deletePost } from '../actions'
+
+const PostForm = ({
+  setEditPostMode, newPost, posts, id, dispatchAddPost, dispatchEditPost, dispatchDeletePost,
+}) => {
+  let currTitle = ''
+  let currImg = ''
+  let currText = ''
+
+  if (!newPost) {
+    posts.forEach(({ // find post associated with id
+      title: postTitle, img: postImg, text: postText, id: postId,
+    }) => {
+      if (id === postId) {
+        currTitle = postTitle
+        currImg = postImg
+        currText = postText
+      }
+    })
+  }
+
+  const [title, setTitle] = useState(currTitle)
+  const [img, setImg] = useState(currImg)
+  const [text, setText] = useState(currText)
 
   return (
     <div>
       <form onSubmit={e => {
         e.preventDefault()
-        dispatchAddPost(title, img, text)
+        if (newPost) {
+          dispatchAddPost(title, img, text)
+        } else {
+          dispatchEditPost(title, img, text, id)
+        }
         setEditPostMode(false)
-        resetValues()
       }}
       >
         <div>
@@ -45,11 +66,33 @@ const PostForm = () => {
             value="cancel"
             onClick={e => {
               setEditPostMode(false)
-              resetValues()
             }}
           />
         </div>
+        {!newPost
+        && (
+          <div>
+            <button
+              type="button"
+              onClick={() => {
+                dispatchDeletePost(id)
+              }}
+            >
+              delete
+            </button>
+          </div>
+        )}
       </form>
     </div>
   )
 }
+
+const mapStateToProps = state => ({ posts: state.posts })
+
+const mapDispatchToProps = dispatch => ({
+  dispatchAddPost: (title, img, text) => dispatch(addPost(title, img, text)),
+  dispatchEditPost: (title, img, text, postId) => dispatch(editPost(title, img, text, postId)),
+  dispatchDeletePost: postId => dispatch(deletePost(postId)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

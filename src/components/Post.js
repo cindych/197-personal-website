@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { editPost } from '../actions'
+import PostForm from './PostForm'
 
 const Post = ({ id, posts, dispatchEditPost }) => {
   let currTitle
   let currImg
   let currText
-  console.log(posts)
 
   posts.forEach(({ // find post associated with id
     title: postTitle, img: postImg, text: postText, id: postId,
@@ -20,9 +20,6 @@ const Post = ({ id, posts, dispatchEditPost }) => {
   })
 
   const [editPostMode, setEditPostMode] = useState(false)
-  const [title, setTitle] = useState(currTitle)
-  const [img, setImg] = useState(currImg)
-  const [text, setText] = useState(currText)
 
   return (
     <>
@@ -42,49 +39,7 @@ const Post = ({ id, posts, dispatchEditPost }) => {
       { editPostMode
       && (
       <div>
-        <form onSubmit={e => {
-          e.preventDefault()
-          dispatchEditPost(title, img, text, id)
-          setEditPostMode(false)
-        }}
-        >
-          <div>
-            <label>
-              Title
-              <input type="text" value={title} placeholder="Enter the title of the post" onChange={e => setTitle(e.target.value)} />
-            </label>
-          </div>
-          <div>
-            <label>
-              Image
-              <input type="text" value={img} placeholder="Enter image url" onChange={e => setImg(e.target.value)} />
-            </label>
-          </div>
-          <div>
-            <label>
-              Description
-              <input type="text" value={text} placeholder="Enter description" onChange={e => setText(e.target.value)} />
-            </label>
-          </div>
-          <div>
-            <input
-              type="submit"
-              value="submit"
-            />
-            <input
-              type="button"
-              value="cancel"
-              onClick={e => {
-                setEditPostMode(false)
-                // take out if moving form to another component, initial
-                // state will persist
-                setTitle(currTitle)
-                setImg(currImg)
-                setText(currText)
-              }}
-            />
-          </div>
-        </form>
+        <PostForm setEditPostMode={setEditPostMode} id={id} newPost={false} />
       </div>
       )}
     </>
