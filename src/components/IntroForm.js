@@ -26,14 +26,14 @@ const IntroForm = ({ intro, dispatchEditIntro, setEditIntroMode }) => {
             onClick={e => {
               e.preventDefault()
               dispatchEditIntro(img, text)
-              setEditIntroMode(true)
+              setEditIntroMode(false)
             }}
           />
           <input
             type="button"
             value="cancel"
             onClick={e => {
-              setEditIntroMode(true)
+              setEditIntroMode(false)
             }}
           />
         </div>

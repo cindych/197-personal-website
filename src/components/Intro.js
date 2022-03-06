@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 import IntroForm from './IntroForm'
 
 const Intro = ({ intro }) => {
-  const [editIntroMode, setEditIntroMode] = useState(true)
+  const [editIntroMode, setEditIntroMode] = useState(false)
   const { img, text } = intro
 
   const introSect = () => {
-    if (editIntroMode) {
+    if (!editIntroMode) {
       return (
         <>
-          <button type="button" onClick={() => setEditIntroMode(false)}>Edit</button>
+          <button type="button" onClick={() => setEditIntroMode(true)}>Edit</button>
           <div style={{ maxHeight: '200px', maxWidth: '200px' }}>
             <img src={img} alt="intro pic" height="100%" width="100%" />
           </div>
