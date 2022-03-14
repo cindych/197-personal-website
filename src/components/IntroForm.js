@@ -15,9 +15,7 @@ const IntroForm = ({ intro, dispatchEditIntro, setEditIntroMode }) => {
     <>
       <form>
         <TextField id="outlined-basic" color="secondary" value={img} label="Image" variant="outlined" size="small" fullWidth onChange={e => setImg(e.target.value)} />
-        {/* <input type="text" value={img} placeholder="Enter image url" onChange={e => setImg(e.target.value)} /> */}
         <TextField id="outlined-basic" color="secondary" value={text} label="Description" variant="outlined" margin="normal" fullWidth multiline maxRows={5} size="small" onChange={e => setText(e.target.value)} />
-        {/* <input type="text" value={text} placeholder="Enter description" onChange={e => setText(e.target.value)} /> */}
         <div style={{ margin: '2% 0' }}>
           <Button
             color="secondary"

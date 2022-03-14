@@ -42,29 +42,8 @@ const PostForm = ({
       }}
       >
         <TextField id="outline-basic" color="secondary" value={title} label="Title" variant="outlined" size="small" fullWidth onChange={e => setTitle(e.target.value)} />
-        {/* <div>
-          <label>
-            Title
-            <input type="text" value={title} placeholder="Enter the title of the post" onChange={e => setTitle(e.target.value)} />
-          </label>
-        </div> */}
-
         <TextField id="outline-basic" color="secondary" value={img} label="Image" variant="outlined" size="small" fullWidth margin="normal" onChange={e => setImg(e.target.value)} />
-        {/* <div>
-          <label>
-            Image
-            <input type="text" value={img} placeholder="Enter image url" onChange={e => setImg(e.target.value)} />
-          </label>
-        </div> */}
-
         <TextField id="outline-basic" color="secondary" value={text} label="Description" variant="outlined" size="small" fullWidth multiline maxRows={5} margin="dense" onChange={e => setText(e.target.value)} />
-        {/* <div>
-          <label>
-            Description
-            <input type="text" value={text} placeholder="Enter description" onChange={e => setText(e.target.value)} />
-          </label>
-        </div> */}
-
         <div style={{ margin: '5% 0' }}>
           <Button
             color="secondary"
