@@ -30,7 +30,7 @@ const PostForm = ({
   const [text, setText] = useState(currText)
 
   return (
-    <div>
+    <>
       <form onSubmit={e => {
         e.preventDefault()
         if (newPost) {
@@ -65,7 +65,7 @@ const PostForm = ({
           </label>
         </div> */}
 
-        <div>
+        <div style={{ margin: '5% 0' }}>
           <Button
             color="secondary"
             type="submit"
@@ -86,7 +86,7 @@ const PostForm = ({
         && (
           <div>
             <Button
-              color="secondary"
+              color="error"
               type="button"
               onClick={() => {
                 dispatchDeletePost(id)
@@ -97,7 +97,7 @@ const PostForm = ({
           </div>
         )}
       </form>
-    </div>
+    </>
   )
 }
 

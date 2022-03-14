@@ -23,27 +23,27 @@ const Post = ({ id, posts, dispatchEditPost }) => {
   const [editPostMode, setEditPostMode] = useState(false)
 
   return (
-    <>
+    <div style={{ height: '100%' }}>
       { !editPostMode
       && (
         <>
           <h1>{currTitle}</h1>
-          <div style={{ maxHeight: '200px', maxWidth: '200px' }}>
+          <div style={{ margin: '0 auto', maxHeight: '200px', maxWidth: '200px' }}>
             <img src={currImg} alt="post pic" height="100%" width="100%" />
           </div>
-          <p>{currText}</p>
+          <p style={{ overflowWrap: 'break-word' }}>{currText}</p>
 
-          <Button color="secondary" variant="outlined" type="button" onClick={() => setEditPostMode(true)}>Edit</Button>
+          <Button color="secondary" variant="outlined" type="button" style={{ marginBottom: '5%' }} onClick={() => setEditPostMode(true)}>Edit</Button>
         </>
       )}
 
       { editPostMode
       && (
-      <div>
+      <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
         <PostForm setEditPostMode={setEditPostMode} id={id} newPost={false} />
       </div>
       )}
-    </>
+    </div>
   )
 }
 

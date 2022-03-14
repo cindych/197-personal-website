@@ -14,7 +14,7 @@ const Intro = ({ intro }) => {
       return (
         <>
           <Button variant="contained" color="secondary" onClick={() => setEditIntroMode(true)}>Edit</Button>
-          <div style={{ maxHeight: '200px', maxWidth: '200px' }}>
+          <div style={{ marginTop: '2%', maxHeight: '200px', maxWidth: '200px' }}>
             <img src={img} alt="intro pic" height="100%" width="100%" />
           </div>
           <p>{text}</p>
