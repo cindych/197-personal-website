@@ -57,7 +57,7 @@ const Posts = ({ posts }) => {
               sx={{ boxShadow: 1 }}
               style={
                 {
-                  width: '30%', padding: '5%', margin: '1%', height: '400px',
+                  width: '30%', padding: '2%', margin: '1%', height: '400px',
                 }
               }
             >

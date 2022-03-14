@@ -23,7 +23,12 @@ const Post = ({ id, posts, dispatchEditPost }) => {
   const [editPostMode, setEditPostMode] = useState(false)
 
   return (
-    <div style={{ height: '100%' }}>
+    <div style={
+      {
+        display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%',
+      }
+    }
+    >
       { !editPostMode
       && (
         <>
