@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 
 import Post from './Post'
@@ -27,7 +26,7 @@ const Posts = ({ posts }) => {
   return (
     <>
       <h1>posts</h1>
-      <Button onClick={() => setEditPostMode(true)}>add post</Button>
+      <Button variant="contained" color="secondary" onClick={() => setEditPostMode(true)}>add post</Button>
 
       <Modal
         open={editPostMode}

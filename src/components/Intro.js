@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
+import Button from '@mui/material/Button'
+
 import IntroForm from './IntroForm'
 
 const Intro = ({ intro }) => {
@@ -11,7 +13,7 @@ const Intro = ({ intro }) => {
     if (!editIntroMode) {
       return (
         <>
-          <button type="button" onClick={() => setEditIntroMode(true)}>Edit</button>
+          <Button variant="contained" color="secondary" onClick={() => setEditIntroMode(true)}>Edit</Button>
           <div style={{ maxHeight: '200px', maxWidth: '200px' }}>
             <img src={img} alt="intro pic" height="100%" width="100%" />
           </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import Button from '@mui/material/Button'
 
 import { editPost } from '../actions'
 import PostForm from './PostForm'
@@ -28,11 +29,11 @@ const Post = ({ id, posts, dispatchEditPost }) => {
         <>
           <h1>{currTitle}</h1>
           <div style={{ maxHeight: '200px', maxWidth: '200px' }}>
-            <img src={currImg} alt="intro pic" height="100%" width="100%" />
+            <img src={currImg} alt="post pic" height="100%" width="100%" />
           </div>
           <p>{currText}</p>
 
-          <button type="button" onClick={() => setEditPostMode(true)}>Edit</button>
+          <Button color="secondary" variant="outlined" type="button" onClick={() => setEditPostMode(true)}>Edit</Button>
         </>
       )}
 

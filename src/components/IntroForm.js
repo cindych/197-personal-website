@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+
 import { editIntro } from '../actions'
 
 const IntroForm = ({ intro, dispatchEditIntro, setEditIntroMode }) => {
@@ -11,31 +14,30 @@ const IntroForm = ({ intro, dispatchEditIntro, setEditIntroMode }) => {
   return (
     <>
       <form>
-        <label>
-          Image
-          <input type="text" value={img} placeholder="Enter image url" onChange={e => setImg(e.target.value)} />
-        </label>
-        <label>
-          Description
-          <input type="text" value={text} placeholder="Enter description" onChange={e => setText(e.target.value)} />
-        </label>
+        <TextField id="outlined-basic" color="secondary" value={img} label="Image" variant="outlined" size="small" onChange={e => setImg(e.target.value)} />
+        {/* <input type="text" value={img} placeholder="Enter image url" onChange={e => setImg(e.target.value)} /> */}
+        <TextField id="outlined-basic" color="secondary" value={text} label="Description" variant="outlined" multiline maxRows={5} size="small" onChange={e => setText(e.target.value)} />
+        {/* <input type="text" value={text} placeholder="Enter description" onChange={e => setText(e.target.value)} /> */}
         <div>
-          <input
-            type="submit"
-            value="submit"
+          <Button
+            color="secondary"
             onClick={e => {
               e.preventDefault()
               dispatchEditIntro(img, text)
               setEditIntroMode(false)
             }}
-          />
-          <input
+          >
+            Submit
+          </Button>
+          <Button
+            color="secondary"
             type="button"
-            value="cancel"
             onClick={e => {
               setEditIntroMode(false)
             }}
-          />
+          >
+            Cancel
+          </Button>
         </div>
       </form>
     </>
