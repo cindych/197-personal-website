@@ -42,8 +42,29 @@ const Posts = ({ posts }) => {
         </Box>
       </Modal>
 
-      <div className="blog-posts" style={{ margin: '2% 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center', width: '100%' }}>
-        {posts.map(post => <Box key={post.id} sx={{ boxShadow: 1 }} style={{ width: '30%', padding: '5%', margin: '1%', height: '400px' }}><Post key={post.id} id={post.id} /></Box>)}
+      <div
+        className="blog-posts"
+        style={
+          {
+            margin: '2% 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center', width: '100%',
+          }
+        }
+      >
+        {
+          posts.map(post => (
+            <Box
+              key={post.id}
+              sx={{ boxShadow: 1 }}
+              style={
+                {
+                  width: '30%', padding: '5%', margin: '1%', height: '400px',
+                }
+              }
+            >
+              <Post key={post.id} id={post.id} />
+            </Box>
+          ))
+        }
       </div>
     </>
   )
