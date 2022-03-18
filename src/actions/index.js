@@ -9,7 +9,7 @@ export const editIntro = (img, text) => ({
   text,
 })
 
-let id = 0
+let id = 1
 
 export const addPost = (title, img, text) => ({
   type: ADD_POST,

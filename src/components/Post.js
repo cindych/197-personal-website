@@ -32,6 +32,7 @@ const Post = ({ id, posts, dispatchEditPost }) => {
       { !editPostMode
       && (
         <>
+          <p style={{ margin: '0', textAlign: 'left' }}>{`Post #${id}`}</p>
           <h1>{currTitle}</h1>
           <div style={{ margin: '0 auto', maxHeight: '200px', maxWidth: '200px' }}>
             <img src={currImg} alt="post pic" height="100%" width="100%" />
